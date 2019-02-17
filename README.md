@@ -167,3 +167,21 @@ func findLeastDiff(_ a: [Int]) -> Int {
 
 ```
 
+## PermCheck
+
+```
+public func solution(_ A : inout [Int]) -> Int {
+    // write your code in Swift 4.2.1 (Linux)
+    return isPermutation(A)
+}
+func isPermutation(_ a: [Int]) -> Int {
+    let sorted = a.sorted()
+    for i in 0..<sorted.count {
+        if sorted[i] != i + 1 {
+            return 0
+        }
+    }
+    return 1
+}
+```
+
