@@ -1,4 +1,4 @@
-# Codility Practice Question Solved in Swift 
+# Codility Practice Questions Solved in Swift 
 
 ## Binary Gap
 
