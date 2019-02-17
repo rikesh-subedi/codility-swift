@@ -132,3 +132,38 @@ func missingElement(_ arr: [Int]) -> Int {
     return totalSum - sum
 }
 
+### TapeEquilibrium
+
+```
+public func solution(_ A : inout [Int]) -> Int {
+    // write your code in Swift 4.2.1 (Linux)
+    return findLeastDiff(A)
+}
+func findLeastDiff(_ a: [Int]) -> Int {
+    if a.count < 2 {
+        return 0
+    }
+    let totalSum = a.reduce(0) { (sum, a) -> Int in
+        return sum + a
+    }
+    var sump1 = 0
+    var sump2 = 0
+    var leastDiff = Int.max
+    var diff = Int.max
+    for i in 0..<a.count - 1 {
+        sump1 = sump1 + a[i]
+        sump2 = totalSum - sump1
+        diff = abs(sump1 - sump2)
+        if diff == 0 {
+            leastDiff = diff
+            break
+        }
+        if diff < leastDiff {
+            leastDiff = diff
+        }
+    }
+    return leastDiff
+}
+
+```
+
