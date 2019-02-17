@@ -116,3 +116,19 @@ func jumps(_ X: Int, _ Y: Int, _ D: Int) -> Int {
 }
 ```
 
+## Missing Number 
+
+```
+public func solution(_ A : inout [Int]) -> Int {
+    return missingElement(A)
+}
+
+func missingElement(_ arr: [Int]) -> Int {
+    let totalSum = (arr.count + 1) * (arr.count + 2) / 2
+    let sum = arr.reduce(0) { (sum, a) -> Int in
+        return sum + a
+    }
+
+    return totalSum - sum
+}
+
