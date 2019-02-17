@@ -67,3 +67,33 @@ func findOdd(_ A : [Int]) -> Int{
 }
 ```
 
+## CyclicRotation
+
+```
+public func solution(_ A : [Int], _ K : Int) -> [Int] {
+    return rotatedArray(A, K)
+}
+
+func rotatedArray(_ A: [Int], _ K : Int) -> [Int] {
+
+    //find array with empty slot for K places in the front
+
+    if A.count <= 1 {
+        return A
+    }
+    var clone = A
+    var shifts = K
+
+    if shifts > A.count {
+        shifts = K % A.count
+    }
+    for i in shifts..<A.count {
+        clone[i] = A[i-shifts]
+    }
+    for i in 0..<shifts {
+        clone[i] = A[A.count - shifts + i] //A[5 - 1 - 2 + 0]
+    }
+    return clone
+}
+```
+
