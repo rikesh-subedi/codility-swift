@@ -97,3 +97,22 @@ func rotatedArray(_ A: [Int], _ K : Int) -> [Int] {
 }
 ```
 
+## Frog Jump
+
+```
+public func solution(_ X : Int, _ Y : Int, _ D : Int) -> Int {
+    return jumps(X,Y,D)
+}
+
+func jumps(_ X: Int, _ Y: Int, _ D: Int) -> Int {
+
+    let difference =  Y - X
+    var jumps = difference / D
+    let remainder = difference % D
+    if remainder > 0 {
+        jumps = jumps + 1
+    }
+    return jumps
+}
+```
+
