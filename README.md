@@ -131,6 +131,7 @@ func missingElement(_ arr: [Int]) -> Int {
 
     return totalSum - sum
 }
+```
 
 ### TapeEquilibrium
 
@@ -164,11 +165,9 @@ func findLeastDiff(_ a: [Int]) -> Int {
     }
     return leastDiff
 }
-
 ```
 
 ## PermCheck
-
 ```
 public func solution(_ A : inout [Int]) -> Int {
     // write your code in Swift 4.2.1 (Linux)
