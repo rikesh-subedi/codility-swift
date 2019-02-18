@@ -184,3 +184,22 @@ func isPermutation(_ a: [Int]) -> Int {
 }
 ```
 
+## Frog River
+```
+public func solution(_ X : Int, _ A : inout [Int]) -> Int {
+    // write your code in Swift 4.2.1 (Linux)
+    return earliestMoment(X,A)
+}
+
+func earliestMoment(_ X: Int, _ A : [Int]) -> Int {
+    var set = Set<Int>()
+    for (i, item) in A.enumerated() {
+        set.insert(item)
+        if set.count == X {
+            return i
+        }
+    }
+    return -1
+}
+```
+
