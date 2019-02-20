@@ -203,3 +203,51 @@ func earliestMoment(_ X: Int, _ A : [Int]) -> Int {
 }
 ```
 
+## Smallest Integer
+```
+public func solution(_ A : inout [Int]) -> Int {
+    // write your code in Swift 4.2.1 (Linux)
+    return smallestInteger(A)
+}
+
+func smallestInteger(_ A: [Int]) -> Int {
+    let sorted = A.sorted()
+    if let first = sorted.first, first > 1 {
+        return 1
+    }
+    if let last = sorted.last, last < 1 {
+        return 1
+    }
+    for i in 1...sorted.last! {
+        guard  let _ =  binarySearch(sorted, key: i, range: 0..<sorted.count) else {
+            return i
+        }
+    }
+    return sorted.last! + 1
+    
+}
+func binarySearch<T: Comparable>(_ a: [T], key: T, range: Range<Int>) -> Int? {
+    if range.lowerBound >= range.upperBound {
+        // If we get here, then the search key is not present in the array.
+        return nil
+
+    } else {
+        // Calculate where to split the array.
+        let midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / 2
+
+        // Is the search key in the left half?
+        if a[midIndex] > key {
+            return binarySearch(a, key: key, range: range.lowerBound ..< midIndex)
+
+            // Is the search key in the right half?
+        } else if a[midIndex] < key {
+            return binarySearch(a, key: key, range: midIndex + 1 ..< range.upperBound)
+
+            // If we get here, then we've found the search key!
+        } else {
+            return midIndex
+        }
+    }
+}
+```
+
